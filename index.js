@@ -193,7 +193,7 @@
 //   .then(function(summary){
 //          console.log(summary);
 //          return updateWallet(summary);
-          
+
 //   })
 //   .then(function(wallet){
 //          console.log(wallet);
@@ -205,7 +205,7 @@
 // //crating our own createorder function
 // function createorder(cart){
 //   const pr=new Promise(function(resolve,reject){
-       
+
 //        if(validatecart(cart)){
 //         const orderId="12345";
 //           if(orderId){
@@ -213,16 +213,16 @@
 //                 resolve(orderId);
 //             },5000);
 //           }
-          
-          
+
+
 //        }
 //        else{
 //         const err=new Error("cart is not valid");
 //         reject(err);
 //        }
-       
-       
-       
+
+
+
 
 
 //   });
@@ -255,10 +255,43 @@
 
 //async function->always returns a Promise
 
-async function getdata(){
-  return "Javascript";
+// async function getdata(){
+//   return "Javascript";
+// }
+// getdata().then((res)=>console.log(res));
+
+// const p1 = new Promise(function (resolve, reject) {
+//   setTimeout(() => resolve("p1 gets resolve"), 20000);
+// })
+// const p2 = new Promise(function (resolve, reject) {
+//   setTimeout(() => resolve("p2 gets resolve"), 10000);
+// })
+
+// async function handlePromise() {
+//   const val1 = await p1;
+//   console.log(val1);
+//   const val2 = await p2;
+//   console.log(val2);
+
+// }
+// handlePromise();
+
+const API_URL="https://api.github.com/users/Lokeshsuwalka05";
+
+async function handlePromise(){
+     const data=await fetch(API_URL);
+     const jsonvalue=await data.json();
+     
+     // fetch(API_URL).then((res)=>res.json()).then((data)=>console.log(data));
+     console.log(jsonvalue);
 }
-getdata().then((res)=>console.log(res));
+handlePromise();
+
+//basically fetch function itself is a promise and gives us  a response
+//this response is in the readable stream
+//if you want to convert this readable stream into json then you have to use data.json
+
+
 
 
 
