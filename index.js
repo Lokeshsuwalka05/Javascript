@@ -172,82 +172,94 @@
 
 
 // Create our own promise
-const cart=["shoes","pants","kurta"];
-const promise=createorder(cart);//orderId;
+// const cart=["shoes","pants","kurta"];
+// const promise=createorder(cart);//orderId;
 
 
 
-promise
-  .then(function (orderId){
-         console.log(orderId);
-         return orderId;
-   })
-  .then(function (orderId){
-         return ProceedToPayments(orderId)
+// promise
+//   .then(function (orderId){
+//          console.log(orderId);
+//          return orderId;
+//    })
+//   .then(function (orderId){
+//          return ProceedToPayments(orderId)
 
-   })
-  .then(function(paymentInfo){
-          console.log(paymentInfo);
-          return showOrderSummary(paymentInfo);
-  })
-  .then(function(summary){
-         console.log(summary);
-         return updateWallet(summary);
+//    })
+//   .then(function(paymentInfo){
+//           console.log(paymentInfo);
+//           return showOrderSummary(paymentInfo);
+//   })
+//   .then(function(summary){
+//          console.log(summary);
+//          return updateWallet(summary);
           
-  })
-  .then(function(wallet){
-         console.log(wallet);
-  })
-  .catch(function(err){
-         console.log(err.message);
-  });
+//   })
+//   .then(function(wallet){
+//          console.log(wallet);
+//   })
+//   .catch(function(err){
+//          console.log(err.message);
+//   });
 
-//crating our own createorder function
-function createorder(cart){
-  const pr=new Promise(function(resolve,reject){
+// //crating our own createorder function
+// function createorder(cart){
+//   const pr=new Promise(function(resolve,reject){
        
-       if(validatecart(cart)){
-        const orderId="12345";
-          if(orderId){
-            setTimeout(function(){
-                resolve(orderId);
-            },5000);
-          }
+//        if(validatecart(cart)){
+//         const orderId="12345";
+//           if(orderId){
+//             setTimeout(function(){
+//                 resolve(orderId);
+//             },5000);
+//           }
           
           
-       }
-       else{
-        const err=new Error("cart is not valid");
-        reject(err);
-       }
+//        }
+//        else{
+//         const err=new Error("cart is not valid");
+//         reject(err);
+//        }
        
        
        
 
 
-  });
+//   });
 
 
-  return pr;
-}
-function ProceedToPayments(orderId){
-   return new Promise(function(resolve,reject){
-        return resolve("Payment Successfull");
-   })
-}
-function showOrderSummary(paymentInfo){
-    return new Promise(function(resolve,reject){
-      resolve("total amount is 500rs");
-    })
-}
-function updateWallet(summary){
-   return new Promise(function(resolve,reject){
-       resolve("balance is 500");
-   })
-}
+//   return pr;
+// }
+// function ProceedToPayments(orderId){
+//    return new Promise(function(resolve,reject){
+//         return resolve("Payment Successfull");
+//    })
+// }
+// function showOrderSummary(paymentInfo){
+//     return new Promise(function(resolve,reject){
+//       resolve("total amount is 500rs");
+//     })
+// }
+// function updateWallet(summary){
+//    return new Promise(function(resolve,reject){
+//        resolve("balance is 500");
+//    })
+// }
 
-function validatecart(cart){
-  return true;
+// function validatecart(cart){
+//   return true;
+// }
+
+
+//Learn about promise apis and did interview questions
+
+//async function->always returns a Promise
+
+async function getdata(){
+  return "Javascript";
 }
+getdata().then((res)=>console.log(res));
+
+
 
 
