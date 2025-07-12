@@ -251,9 +251,9 @@
 // }
 
 
-//Learn about promise apis and did interview questions
+// Learn about promise apis and did interview questions
 
-//async function->always returns a Promise
+// async function->always returns a Promise
 
 // async function getdata(){
 //   return "Javascript";
@@ -276,23 +276,40 @@
 // }
 // handlePromise();
 
-const API_URL="https://api.github.com/users/Lokeshsuwalka05";
+// const API_URL="https://api.github.com/users/Lokeshsuwalka05";
 
-async function handlePromise(){
-     const data=await fetch(API_URL);
-     const jsonvalue=await data.json();
+// async function handlePromise(){
+//      const data=await fetch(API_URL);
+//      const jsonvalue=await data.json();
      
-     // fetch(API_URL).then((res)=>res.json()).then((data)=>console.log(data));
-     console.log(jsonvalue);
+//      // fetch(API_URL).then((res)=>res.json()).then((data)=>console.log(data));
+//      console.log(jsonvalue);
+// }
+// handlePromise();
+
+// //basically fetch function itself is a promise and gives us  a response
+// //this response is in the readable stream
+// //if you want to convert this readable stream into json then you have to use data.json
+
+
+
+//call,apply and bind method
+
+let student1={
+  firstname:"lokesh",
+  lastname:"suwalka",
+  printfullname:function(hometown,state){
+    console.log(this.firstname+" "+this.lastname+" "+hometown+" "+state);
+  }
 }
-handlePromise();
-
-//basically fetch function itself is a promise and gives us  a response
-//this response is in the readable stream
-//if you want to convert this readable stream into json then you have to use data.json
-
-
-
+let student2={
+    firstname:"lokesh",
+    lastname:"suwalka"
+}
+student1.printfullname.call(student2,"bhilwara","rajasthan");
+student1.printfullname.apply(student2,["bhilwara","rajasthan"]);
+let print=student1.printfullname.bind(student2,"bhilwara","rajasthan");
+print();
 
 
 
