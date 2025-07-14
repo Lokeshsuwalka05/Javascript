@@ -310,6 +310,51 @@ student1.printfullname.call(student2,"bhilwara","rajasthan");
 student1.printfullname.apply(student2,["bhilwara","rajasthan"]);
 let print=student1.printfullname.bind(student2,"bhilwara","rajasthan");
 print();
+ 
+
+//array destructuring
+const a=[1,2,3,4];
+const b=a[0];
+const [x,,z]=a;
+console.log(x,z);
+
+//object destructuring
+
+const user = {
+  id: 1,
+  profile: {
+    username: 'lokesh',
+    email: 'lokesh@example.com'
+  }
+};
+
+const {
+  id:userid,
+  profile: { username, email }
+} = user;
+console.log(username, email,userid); // lokesh, lokesh@example.com
+
+
+
+//rest operator
+
+const [first,...rest]=[1,2,3,4];
+
+const arr1=[1,2,3,4];
+const arr=[...arr1,2,3,4];
+console.log(arr);
+
+const user1= {
+  id: 1,
+  profile: {
+    username: 'lokesh',
+    email: 'lokesh@example.com'
+  }
+};
+
+const user2={...user1,city:'bhilwara'};
+console.log(user2.profile.username);
+
 
 
 
