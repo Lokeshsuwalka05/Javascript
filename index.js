@@ -355,6 +355,43 @@ const user1= {
 const user2={...user1,city:'bhilwara'};
 console.log(user2.profile.username);
 
+//onblur event
+// function handle(){
+//    let x=document.getElementById("fname");
+//    x.value=x.value.toUpperCase();
+// }
+// document.getElementById("fname").addEventListener("blur",handle);
+// document.getElementById("btn").addEventListener("click",handle);
+
+// function trigger(){
+//   let x=document.getElementById("myselect").value;
+//   document.getElementById("para").innerHTML=x;
+// }
+
+// document.getElementById("myselect").addEventListener("change",trigger);
+
+let focusing=function(){
+  document.getElementById("fname").style.background="red";
+}
+
+document.getElementById("fname").addEventListener("focus",focusing);
+
+
+function test(){
+  let count=0;
+  
+  const a=setInterval(() => {
+    document.getElementById("para").innerHTML=count;
+    console.log(count++);
+    if(count==5){
+      clearInterval(a);
+    }
+  },1000);
+
+}
+test();
+
+
 
 
 
